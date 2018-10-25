@@ -6,43 +6,27 @@
     "jest": true,
     "es6": true
   },
-  "extends": [
-    "eslint:recommended",
-    "plugin:react/recommended"
-  ],
+  "globals": {
+    "err": true,
+    "req": true,
+    "res": true,
+    "next": true
+  },
+  "extends": "eslint:recommended",
   "parserOptions": {
-    "sourceType": "module",
-    "ecmaVersion": 6,
-    "ecmaFeatures": {
-      "experimentalObjectRestSpread": true,
-      "module": true,
-      "jsx": true
-    }
+    "sourceType": "module"
   },
   "rules": {
     "no-console": "off",
-    "no-unused-vars": "off",
     "indent": [
       "error",
-      2,
-      {
-        "SwitchCase": 1
-      }
-    ],
-    "react/prop-types": [
-      0
+      2
     ],
     "quotes": [
       "error",
       "single",
       {
         "allowTemplateLiterals": true
-      }
-    ],
-    "space-infix-ops": [
-      "error",
-      {
-        "int32Hint": false
       }
     ],
     "comma-dangle": [
@@ -53,8 +37,5 @@
       "error",
       "always"
     ]
-  },
-  "plugins": [
-    "react"
-  ]
+  }
 }

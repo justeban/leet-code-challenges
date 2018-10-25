@@ -21,11 +21,16 @@
   },
   "homepage": "https://github.com/justeban/leet-code-challenges#readme",
   "dependencies": {
+    "babel-eslint": "^8.2.3",
+    "babel-register": "^6.26.0",
     "eslint": "^4.19.1",
     "jest": "^22.4.3"
   },
   "jest": {
     "verbose": true,
     "testURL": "http://localhost/"
+  },
+  "devDependencies": {
+    "eslint-plugin-react": "^7.11.1"
   }
 }
