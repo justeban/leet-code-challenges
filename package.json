@@ -4,7 +4,11 @@
   "description": "Challenges From LeetCode",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint **/*.js",
+    "start": "node index.js",
+    "test": "jest --verbose --coverage",
+    "test-watch": "jest --watchAll --verbose --coverage",
+    "watch": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +19,13 @@
   "bugs": {
     "url": "https://github.com/justeban/leet-code-challenges/issues"
   },
-  "homepage": "https://github.com/justeban/leet-code-challenges#readme"
+  "homepage": "https://github.com/justeban/leet-code-challenges#readme",
+  "dependencies": {
+    "eslint": "^4.19.1",
+    "jest": "^22.4.3"
+  },
+  "jest": {
+    "verbose": true,
+    "testURL": "http://localhost/"
+  }
 }
