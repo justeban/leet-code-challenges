@@ -25,7 +25,7 @@ exports.removeDups = arr => {
   let currIdx = 0;
   let currItem = arr[0];
 
-  arr.forEach((item, i) => {
+  arr.forEach(item => {
     if (item !== currItem) {
       currIdx++;
       currItem = item;
