@@ -12,15 +12,7 @@ exports.removeDups = arr => {
   
   if (!arr || !(arr instanceof Array)) { throw 'invalid input'; }
   
-  function isSorted (arr) {
-    for (let i = 0; i < arr.length; i++) {
-      if ( !(arr[i] <= arr[i + 1])) {
-        return arr.sort();
-      }
-    }
-    return arr;
-  }
-  arr = isSorted(arr);
+  arr = arr.sort();
 
   let currIdx = 0;
   let currItem = arr[0];
@@ -41,6 +33,9 @@ exports.removeDups = arr => {
 // time - this ignoring the work that splice is doing behind the scenes
 // --- we can 
 exports.removeDups2 = arr => {
+  
+  if (!arr || !(arr instanceof Array)) { throw 'invalid input'; }
+
   for (let i = 0; i < arr.length;  i++) {
     if ( arr[i] === arr[i + 1]) {
       arr.splice(i, 1);
@@ -63,14 +58,19 @@ exports.removeDups2 = arr => {
 // space - we are create an entire new structure that is of n size
 
 exports.removeDups3 = arr => {
+
+  if (!arr || !(arr instanceof Array)) { throw 'invalid input'; }
+
   let set = new Set();
   arr.forEach(item => set.add(item));
-  return set.size;
+  arr = set;
+  return set;
 };
 
 // Using filter
 // Big o => time o(n), space o(1)
 // creates new array, but also removes the extra characters
 exports.removeDups4 = arr => {
+  if (!arr || !(arr instanceof Array)) { throw 'invalid input'; }
   return arr.filter((item, i) => item !== arr[i + 1]).length;
 };

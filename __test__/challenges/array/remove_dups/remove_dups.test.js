@@ -42,4 +42,48 @@ describe('removeDups()', () => {
 
 describe('removeDups2()', () => {
   
+  it('if input is not an array expect to throw an error', () => {
+    expect(() => removeDups.removeDups2()).toThrow();
+    expect(() => removeDups.removeDups2({})).toThrow();
+    expect(() => removeDups.removeDups2('hello')).toThrow();
+    expect(() => removeDups.removeDups2(1234)).toThrow();
+  });
+
+  it('expect to modify existing array, length after as well is going to be result of a filtered array', () => {
+    let x = [1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5];
+    let length = x.length;
+    removeDups.removeDups2(x);
+    expect(length > x.length).toBeTruthy();
+  });
 }); 
+
+describe('removeDups3()', () => {
+  it('if input is not an array expect to throw an error', () => {
+    expect(() => removeDups.removeDups3()).toThrow();
+    expect(() => removeDups.removeDups3({})).toThrow();
+    expect(() => removeDups.removeDups3('hello')).toThrow();
+    expect(() => removeDups.removeDups3(1234)).toThrow();
+  });
+  it('method uses a set, expect original array to be unmodified but return value to be a set', () => {
+    let x = [1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5];
+    let xStr = x.join('');
+    let set = removeDups.removeDups3(x);
+    expect(set instanceof Set).toBeTruthy();
+    expect(x.join('') === xStr).toBeTruthy();
+  });
+});
+describe('removeDups4()', () => {
+  it('if input is not an array expect to throw an error', () => {
+    expect(() => removeDups.removeDups4()).toThrow();
+    expect(() => removeDups.removeDups4({})).toThrow();
+    expect(() => removeDups.removeDups4('hello')).toThrow();
+    expect(() => removeDups.removeDups4(1234)).toThrow();
+  });
+  it('expect input array to be unmodified and return value to be the new array\'s length', () => {
+    let x = [1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5];
+    let xStr = JSON.stringify(x);
+    let nonDups = removeDups.removeDups4(x);
+    expect(JSON.stringify(x) === xStr).toBeTruthy();
+    expect(nonDups === 5).toBeTruthy();
+  });
+});
